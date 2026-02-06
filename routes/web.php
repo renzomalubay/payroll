@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 // Guest routes (User shouldn't be logged in to see these)
@@ -12,7 +13,5 @@ Route::middleware('guest')->group(function () {
 // Protected routes (User must be logged in)
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/dashboard', function () {
-        return view('pages.dashboard'); // This points to your Tailwind HTML file
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
