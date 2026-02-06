@@ -14,4 +14,9 @@ class Salary extends Model
         'base_salary',
         'pay_cycle',
     ];
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }

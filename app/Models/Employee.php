@@ -17,4 +17,9 @@ class Employee extends Model
         'hire_date',
         'is_active',
     ];
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }
