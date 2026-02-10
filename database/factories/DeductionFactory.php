@@ -17,10 +17,6 @@ class DeductionFactory extends Factory
     public function definition(): array
     {
         return [
-            'employee_id' => \App\Models\Employee::factory(),
-            'name' => fake()->randomElement(['Tax', 'Health Insurance', 'Pension', 'Union Fees']),
-            'amount' => fake()->randomFloat(2, 50, 500),
-            'type' => 'fixed',
         ];
     }
 }

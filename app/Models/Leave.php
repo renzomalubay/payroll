@@ -11,11 +11,13 @@ class Leave extends Model
     use HasFactory;
 
     protected $fillable = [
-        'employee_id',
-        'leave_type_id',
-        'start_date',
-        'end_date',
-        'reason',
-        'status',
+        'employee_id', 'leave_type_id', 'start_date',
+        'end_date', 'return_date', 'reason', 'status'
+    ];
+
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+        'return_date' => 'date',
     ];
 }

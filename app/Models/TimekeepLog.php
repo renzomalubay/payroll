@@ -9,4 +9,10 @@ class TimekeepLog extends Model
 {
     /** @use HasFactory<\Database\Factories\TimekeepLogFactory> */
     use HasFactory;
+    protected $fillable = ['employee_id', 'schedule_id', 'time_in', 'time_out'];
+
+    protected $casts = [
+        'time_in' => 'datetime',
+        'time_out' => 'datetime',
+    ];
 }

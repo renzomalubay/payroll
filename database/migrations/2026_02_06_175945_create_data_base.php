@@ -56,6 +56,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('position');
             $table->enum('employment_type', ['regular', 'probationary']);
+            $table->date('start_date');
             $table->decimal('leave_credit', 8, 2)->default(0);
             $table->string('sss_no')->nullable();
             $table->string('hdmf_no')->nullable();

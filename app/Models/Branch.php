@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Department extends Model
+class Branch extends Model
 {
+    /** @use HasFactory<\Database\Factories\BranchFactory> */
     use HasFactory;
     use SoftDeletes;
     

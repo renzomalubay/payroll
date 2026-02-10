@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PayrollRun;
+use App\Models\Branch;
 use Illuminate\Http\Request;
 
-class PayrollRunController extends Controller
+class BranchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PayrollRunController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PayrollRun $payrollRun)
+    public function show(Branch $branch)
     {
         //
     }
@@ -42,7 +42,7 @@ class PayrollRunController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PayrollRun $payrollRun)
+    public function edit(Branch $branch)
     {
         //
     }
@@ -50,7 +50,7 @@ class PayrollRunController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PayrollRun $payrollRun)
+    public function update(Request $request, Branch $branch)
     {
         //
     }
@@ -58,7 +58,7 @@ class PayrollRunController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PayrollRun $payrollRun)
+    public function destroy(Branch $branch)
     {
         //
     }
