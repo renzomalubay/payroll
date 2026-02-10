@@ -22,43 +22,50 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes(); // Added
         });
 
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes(); // Added
         });
 
         Schema::create('salaries', function (Blueprint $table) {
             $table->id();
-            $table->string('type'); // Monthly, Daily
+            $table->string('type');
             $table->decimal('rate', 15, 2);
             $table->decimal('allowance', 15, 2)->default(0);
             $table->decimal('housing_allowance', 15, 2)->default(0);
             $table->boolean('is_minimum_wager')->default(false);
-            $table->integer('divisor')->default(22); // Days per month
+            $table->integer('divisor')->default(22);
             $table->timestamps();
+            $table->softDeletes(); // Added
         });
 
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('middle_name')->nullable();
-            $table->string('ext_name')->nullable();
+            $table->string('ext_name', 10)->nullable(); // e.g., Jr., III
+            $table->date('birth_date');
+            $table->string('contact_number');
+            $table->text('address');
             $table->string('position');
-            $table->string('sss_no')->nullable();
-            $table->string('hdmf_no')->nullable(); // Pag-ibig is HDMF
-            $table->string('philhealth_no')->nullable();
-            $table->string('bank_account_number')->nullable();
             $table->enum('employment_type', ['regular', 'probationary']);
             $table->decimal('leave_credit', 8, 2)->default(0);
+            $table->string('sss_no')->nullable();
+            $table->string('hdmf_no')->nullable();
+            $table->string('philhealth_no')->nullable();
+            $table->string('bank_account_number')->nullable();
             $table->foreignId('department_id')->constrained();
             $table->foreignId('branch_id')->constrained();
             $table->foreignId('salary_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('shifts', function (Blueprint $table) {
@@ -67,6 +74,18 @@ return new class extends Migration
             $table->time('start_time');
             $table->time('end_time');
             $table->timestamps();
+            $table->softDeletes(); // Added
+        });
+
+        Schema::create('loans', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('employee_id')->constrained();
+            $table->string('loan_name');
+            $table->decimal('total_amount', 15, 2);
+            $table->decimal('monthly_deduction', 15, 2);
+            $table->decimal('balance', 15, 2);
+            $table->timestamps();
+            $table->softDeletes(); // Added
         });
 
         Schema::create('schedules', function (Blueprint $table) {
@@ -96,16 +115,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('loans', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('employee_id')->constrained();
-            $table->string('loan_name');
-            $table->decimal('total_amount', 15, 2);
-            $table->decimal('monthly_deduction', 15, 2);
-            $table->decimal('balance', 15, 2);
-            $table->timestamps();
-        });
-
         Schema::create('leaves', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->constrained();
@@ -119,9 +128,10 @@ return new class extends Migration
 
         Schema::create('tax_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // e.g., De Minimis, Taxable Bonus, Non-Taxable
+            $table->string('name');
             $table->boolean('is_taxable')->default(true);
             $table->timestamps();
+            $table->softDeletes(); // Added
         });
 
         Schema::create('other_incomes', function (Blueprint $table) {

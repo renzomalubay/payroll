@@ -9,4 +9,8 @@ class Branche extends Model
 {
     /** @use HasFactory<\Database\Factories\BrancheFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+    ];
 }

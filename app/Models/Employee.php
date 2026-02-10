@@ -10,12 +10,15 @@ class Employee extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'department_id',
         'first_name',
         'last_name',
         'email',
-        'hire_date',
-        'is_active',
+        'phone',
+        'address',
+        'date_of_birth',
+        'date_of_joining',
     ];
 
     public function department()
