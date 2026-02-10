@@ -51,6 +51,7 @@ return new class extends Migration
             $table->string('position');
             $table->string('sss_no')->nullable();
             $table->string('hdmf_no')->nullable(); // Pag-ibig is HDMF
+            $table->string('philhealth_no')->nullable();
             $table->string('bank_account_number')->nullable();
             $table->enum('employment_type', ['regular', 'probationary']);
             $table->decimal('leave_credit', 8, 2)->default(0);
