@@ -122,7 +122,15 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->date('return_date')->nullable();
+            $table->text('reason')->nullable();
             $table->string('status')->default('pending');
+            $table->timestamps();
+        });
+
+        Schema::create('leave_types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('code'); // e.g., SL, VL, EL
             $table->timestamps();
         });
 
