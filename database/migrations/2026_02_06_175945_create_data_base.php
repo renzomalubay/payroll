@@ -188,17 +188,24 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
-        Schema::dropIfExists('departments');
-        Schema::dropIfExists('branches');
-        Schema::dropIfExists('employees');
-        Schema::dropIfExists('payrolls');
-        Schema::dropIfExists('loans');
-        Schema::dropIfExists('leaves');
-        Schema::dropIfExists('tax_categories');
-        Schema::dropIfExists('other_incomes');
-        Schema::dropIfExists('overtimes');
-        Schema::dropIfExists('deductions');
+        // Drop children first
         Schema::dropIfExists('loan_logs');
+        Schema::dropIfExists('deductions');
+        Schema::dropIfExists('overtimes');
+        Schema::dropIfExists('other_incomes');
+        Schema::dropIfExists('leaves');
+        Schema::dropIfExists('timekeep_logs');
+        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('loans');
+        Schema::dropIfExists('employees'); // Drop employee before the parents below
+
+        // Drop parents last
+        Schema::dropIfExists('payrolls');
+        Schema::dropIfExists('shifts');
+        Schema::dropIfExists('salaries');
+        Schema::dropIfExists('branches');
+        Schema::dropIfExists('departments');
+        Schema::dropIfExists('roles');
+        Schema::dropIfExists('tax_categories');
     }
 };
