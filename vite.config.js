@@ -25,8 +25,6 @@ export default defineConfig({
         alias: {
             "@utils": "/resources/ts/utils",
             "@components": "/resources/ts/components",
-            "@services": "/resources/ts/services",
-            "@admin": "/resources/ts/admin",
         },
     },
     server: {

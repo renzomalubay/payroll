@@ -1,0 +1,22 @@
+{
+    // Visit https://aka.ms/tsconfig to read more about this file
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "@utils/*": ["resources/ts/utils/*"],
+            "@components/*": ["resources/ts/components/*"],
+            "@services/*": ["resources/ts/services/*"],
+            "@admin/*": ["resources/ts/admin/*"]
+        },
+        "allowJs": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "types": ["vite/client"]
+    },
+    "include": ["resources/ts/**/*"]
+}

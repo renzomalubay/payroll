@@ -8,13 +8,22 @@
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
+        "@types/datatables.net": "^1.10.28",
+        "@types/jquery": "^3.5.33",
+        "@types/lodash": "^4.17.23",
         "axios": "^1.11.0",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^2.0.0",
         "tailwindcss": "^4.0.0",
+        "typescript": "^5.9.3",
         "vite": "^7.0.7"
     },
     "dependencies": {
-        "glob": "^13.0.2"
+        "datatables.net-bs5": "^2.3.7",
+        "datatables.net-responsive-bs5": "^3.0.8",
+        "glob": "^13.0.2",
+        "jquery": "^4.0.0",
+        "lodash": "^4.17.23",
+        "sweetalert2": "^11.26.18"
     }
 }
