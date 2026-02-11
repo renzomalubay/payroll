@@ -17,7 +17,7 @@ class PayrollFactory extends Factory
     public function definition(): array
     {
         return [
-            'code' => 'PYRL-' . strtoupper($this->faker->bothify('??###')),
+            'code' => $this->faker->unique()->bothify('PAY-####-??-2026'),
             'month' => now()->format('F'),
             'date_start' => now()->startOfMonth(),
             'date_end' => now()->endOfMonth(),

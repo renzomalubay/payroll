@@ -21,7 +21,7 @@ class OtherIncomeFactory extends Factory
         return [
             'employee_id' => Employee::factory(),
             'tax_category_id' => TaxCategory::factory(),
-            'code' => $this->faker->randomElement(['MEAL_ALW', 'PERA', 'CLOTH_ALW']),
+            'code' => $this->faker->randomElement(['MEAL_ALW', 'PERA', 'GAS_ALW', 'CLOTHING']),
             'name' => $this->faker->words(2, true),
             'description' => $this->faker->sentence(),
             'amount' => $this->faker->randomFloat(2, 500, 2000),

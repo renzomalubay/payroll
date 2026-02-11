@@ -16,10 +16,10 @@ class LeaveTypeFactory extends Factory
      */
     public function definition(): array
     {
-        $name = $this->faker->unique()->randomElement(['Sick Leave', 'Vacation Leave', 'Emergency Leave']);
         return [
-            'name' => $name,
-            'code' => strtoupper(substr($name, 0, 2)),
+            'name' => $this->faker->word() . ' Leave',
+            // REMOVE .unique() from here
+            'code' => $this->faker->bothify('??-###'),
         ];
     }
 }
