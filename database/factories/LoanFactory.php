@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Employee;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,15 @@ class LoanFactory extends Factory
      */
     public function definition(): array
     {
+        $totalAmount = $this->faker->randomFloat(2, 5000, 50000);
+        $monthlyDeduction = $totalAmount / 12;
+
         return [
-            //
+            'employee_id' => Employee::factory(),
+            'loan_name' => $this->faker->randomElement(['SSS Salary Loan', 'Pag-IBIG Multi-Purpose', 'Emergency Loan']),
+            'total_amount' => $totalAmount,
+            'monthly_deduction' => $monthlyDeduction,
+            'balance' => $this->faker->randomFloat(2, 1000, $totalAmount), // Current remaining balance
         ];
     }
 }

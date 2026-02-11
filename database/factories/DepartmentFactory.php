@@ -18,7 +18,6 @@ class DepartmentFactory extends Factory
     {
         return [
             'name' => fake()->company() . ' Department', // This was likely missing
-            'code' => fake()->unique()->lexify('???'),
         ];
     }
 }

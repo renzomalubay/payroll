@@ -17,7 +17,8 @@ class TaxCategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->randomElement(['De Minimis', 'Taxable Benefits', 'Government Mandated']),
+            'is_taxable' => $this->faker->boolean(),
         ];
     }
 }

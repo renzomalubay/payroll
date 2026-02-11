@@ -17,8 +17,12 @@ class SalaryFactory extends Factory
     public function definition(): array
     {
         return [
-            'base_salary' => fake()->randomFloat(2, 3000, 8000),
-            'pay_cycle' => 'monthly',
+            'type' => $this->faker->randomElement(['Monthly', 'Semi-Monthly']),
+            'rate' => $this->faker->randomFloat(2, 15000, 100000),
+            'allowance' => $this->faker->randomFloat(2, 500, 5000),
+            'housing_allowance' => $this->faker->randomFloat(2, 0, 3000),
+            'is_minimum_wager' => false,
+            'divisor' => 22,
         ];
     }
 }
