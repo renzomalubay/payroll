@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class EmployeeController extends Controller
 {
@@ -13,6 +14,13 @@ class EmployeeController extends Controller
     public function index()
     {
         return view('pages.employee.index');
+    }
+
+    public function datatable()
+    {
+        $query = Employee::select('employees.*');
+        // dd($query->get());
+        return DataTables::of($query)->toJson();
     }
 
     /**

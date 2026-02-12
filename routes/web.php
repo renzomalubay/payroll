@@ -15,5 +15,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/employee', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::get('/employee/datatable', [EmployeeController::class, 'datatable'])->name('employee.datatable');
 });

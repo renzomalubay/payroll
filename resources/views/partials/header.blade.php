@@ -17,7 +17,7 @@
     rel="stylesheet">
 
   {{-- ziggy --}}
-  {{-- @routes --}}
+  @routes
 
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

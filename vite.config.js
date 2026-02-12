@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import { globSync } from "glob";
+import path from "path";
 
 export default defineConfig({
     plugins: [
